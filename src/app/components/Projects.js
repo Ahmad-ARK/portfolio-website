@@ -5,24 +5,30 @@ import Link from 'next/link'
 const projects = [
     {
         number: '01',
-        title: 'Project Title One',
+        title: 'Geo-Logger',
         contribution: 'Design & Development',
-        description: 'A brief description of this project and what problem it solves for the client.',
+        description: 'A field logging software for Geotech engineers for hassle free data collection and automatic report generation.',
         bg: 'linear-gradient(180deg, hsl(210, 100%, 80%), hsl(40, 100%, 80%))',
+        image: '/images/geo-logger.png',
+        url: 'https://github.com/Ahmad-ARK/geo-logger'
     },
     {
         number: '02',
-        title: 'Project Title Two',
-        contribution: 'UI/UX Design',
-        description: 'A brief description of this project and what problem it solves for the client.',
+        title: 'AuraFarm',
+        contribution: 'Design & Development',
+        description: 'An Algorithm based early crop disease risk detection and migitaion and Machine Learning based disease detection via images.',
         bg: 'hsl(252, 51%, 67%)',
+        image: '/images/aura.png',
+        url: 'https://github.com/Ahmad-ARK/AuraFarm'
     },
     {
         number: '03',
-        title: 'Project Title Three',
-        contribution: 'Full Stack Development',
-        description: 'A brief description of this project and what problem it solves for the client.',
+        title: 'Frame',
+        contribution: 'Full Stack Development | In Development',
+        description: 'A fully automatic AI content generation paltform from voiceover and script generation to full video assembly',
         bg: 'linear-gradient(135deg, hsl(271, 100%, 80%), hsl(216, 100%, 79%))',
+        image: '/images/frame.png',
+        url: 'https://github.com/Ahmad-ARK/neetcode-submissions'
     },
 ]
 
@@ -45,6 +51,21 @@ export default function Projects() {
                     >
                         <div className="stackCardImage" style={{ background: project.bg }}>
                             <span className="stackCardNumber">{project.number}</span>
+
+                            {project.image && (
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    style={{
+                                        position: 'absolute',
+                                        inset: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        borderRadius: 'inherit',
+                                    }}
+                                />
+                            )}
                         </div>
 
                         <div className="stackCardBody">
@@ -54,12 +75,13 @@ export default function Projects() {
                                 <p className="bodyText">{project.description}</p>
                             </div>
 
-                            <Link href="#" className="button-cta" style={{ textDecoration: 'none' }}>
+                            <Link href={project.url} className="button-cta" style={{ textDecoration: 'none' }}>
                                 <p className="smallButtonText">View project</p>
                                 <div className="forwardarrow smallforwardarrow">
                                     <img src="/images/chevron_right.png" alt="View project" />
                                 </div>
                             </Link>
+                            <p className=''>The repo might not be public, feel free to request access if you are a recruiter</p>
                         </div>
                     </div>
                 ))}
